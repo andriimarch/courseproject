@@ -10,20 +10,17 @@ jobs:
           name: Set up venv
           command: |
             python -m venv venv
-            . venv/bin/activate
 
       - run:
           name: Install dependencies
           command: |
-            . venv/bin/activate
-            pip install --upgrade pip
-            pip install -r requirements.txt
+            ./venv/bin/pip install --upgrade pip
+            ./venv/bin/pip install -r requirements.txt
 
       - run:
           name: Run tests with HTML report
           command: |
-            . venv/bin/activate
-            pytest --html=report.html --self-contained-html
+            ./venv/bin/pytest --html=report.html --self-contained-html
 
       - store_artifacts:
           path: report.html
