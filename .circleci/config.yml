@@ -10,11 +10,10 @@ jobs:
           name: Create virtual environment
           command: python -m venv venv
       - run:
-          name: Install dependencies
+          name: Install dependencies from requirements.txt
           command: |
             ./venv/bin/pip install --upgrade pip
-            ./venv/bin/pip install pytest pytest-html
-
+            ./venv/bin/pip install -r requirements.txt
       - run:
           name: Run tests with HTML report
           command: ./venv/bin/pytest --html=report.html --self-contained-html
